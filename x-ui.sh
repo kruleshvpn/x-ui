@@ -407,6 +407,7 @@ show_usage() {
 show_menu() {
    echo -e "
    ${green}x-ui panel management script${plain}
+   ————————————————
    ${green}0.${plain} Exit script
    ————————————————
    ${green}1.${plain} install x-ui
@@ -429,7 +430,7 @@ show_menu() {
    ${green}14.${plain} One-click installation of bbr (the latest kernel)
    "
    show_status
-   echo && read -p "Please enter and select [0-14]: "num
+   echo && read -p "Please enter and select [0-14]: " num
 
     case "${num}" in
         0) exit 0
