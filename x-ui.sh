@@ -355,6 +355,7 @@ show_status() {
             ;;
         2)
             echo -e "Panel status: $(red) is not installed${plain}"
+            ;;
     esac
     show_xray_status
 }
