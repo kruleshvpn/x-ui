@@ -36,34 +36,34 @@ func (a *IndexController) index(c *gin.Context) {
 		c.Redirect(http.StatusTemporaryRedirect, "xui/")
 		return
 	}
-	html(c, "login.html", "登录", nil)
+	html(c, "login.html", "Log in", nil)
 }
 
 func (a *IndexController) login(c *gin.Context) {
 	var form LoginForm
 	err := c.ShouldBind(&form)
 	if err != nil {
-		pureJsonMsg(c, false, "数据格式错误")
+		pureJsonMsg(c, false, "Data format error")
 		return
 	}
 	if form.Username == "" {
-		pureJsonMsg(c, false, "请输入用户名")
+		pureJsonMsg(c, false, "Please enter user name")
 		return
 	}
 	if form.Password == "" {
-		pureJsonMsg(c, false, "请输入密码")
+		pureJsonMsg(c, false, "Please enter the password")
 		return
 	}
 	user := a.userService.CheckUser(form.Username, form.Password)
 	if user == nil {
 		logger.Infof("wrong username or password: \"%s\" \"%s\"", form.Username, form.Password)
-		pureJsonMsg(c, false, "用户名或密码错误")
+		pureJsonMsg(c, false, "Wrong user name or password")
 		return
 	}
 
 	err = session.SetLoginUser(c, user)
 	logger.Info("user", user.Id, "login success")
-	jsonMsg(c, "登录", err)
+	jsonMsg(c, "Log in", err)
 }
 
 func (a *IndexController) logout(c *gin.Context) {
