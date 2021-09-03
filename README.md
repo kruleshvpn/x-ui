@@ -36,9 +36,9 @@ systemctl restart x-ui
 ```
 
 ## Suggestion System
--CentOS 7+
--Ubuntu 16+
--Debian 8+
+- CentOS 7+
+- Ubuntu 16+
+- Debian 8+
 
 # common problem
 
