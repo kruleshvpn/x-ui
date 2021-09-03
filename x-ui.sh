@@ -363,7 +363,7 @@ show_status() {
 show_enable_status() {
     check_enabled
     if [[ $? == 0 ]]; then
-        echo -e "Whether to start automatically after booting: $(green)${plain}"
+        echo -e "Whether to start automatically after booting: ${green}Yes${plain}"
     else
         echo -e "Whether to start automatically after booting: ${red}No${plain}"
     fi
@@ -381,9 +381,9 @@ check_xray_status() {
 show_xray_status() {
     check_xray_status
     if [[ $? == 0 ]]; then
-        echo -e "xray status: $(green) running${plain}"
+        echo -e "xray status: ${green} running${plain}"
     else
-        echo -e "xray status: $(red) is not running${plain}"
+        echo -e "xray status: ${red} is not running${plain}"
     fi
 }
 
