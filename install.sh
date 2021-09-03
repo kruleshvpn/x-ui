@@ -90,16 +90,16 @@ install_x-ui() {
             exit 1
         fi
         echo -e "The latest version of x-ui is detected: ${last_version}, start installation"
-        wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz https://github.com/kruleshvpn/x-ui/releases/download/${last_version}/x-ui-linux-${arch}.tar.gz
+        wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.zip https://github.com/kruleshvpn/x-ui/releases/download/${last_version}/x-ui-linux-${arch}.zip
         if [[ $? -ne 0 ]]; then
             echo -e "${red}Download x-ui failed, please make sure your server can download Github files${plain}"
             exit 1
         fi
     else
         last_version=$1
-        url="https://github.com/kruleshvpn/x-ui/releases/download/${last_version}/x-ui-linux-${arch}.tar.gz"
+        url="https://github.com/kruleshvpn/x-ui/releases/download/${last_version}/x-ui-linux-${arch}.zip"
         echo -e "Start to install x-ui v$1"
-        wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz ${url}
+        wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.zip ${url}
         if [[ $? -ne 0 ]]; then
             echo -e "${red}Download x-ui v$1 failed, please make sure this version exists${plain}"
             exit 1
@@ -110,8 +110,8 @@ install_x-ui() {
         rm /usr/local/x-ui/ -rf
     fi
 
-    tar zxvf x-ui-linux-${arch}.tar.gz
-    rm x-ui-linux-${arch}.tar.gz -f
+    unzip x-ui-linux-${arch}.zip
+    rm x-ui-linux-${arch}.zip -f
     cd x-ui
     chmod +x x-ui bin/xray-linux-${arch}
     cp -f x-ui.service /etc/systemd/system/
