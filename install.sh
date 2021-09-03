@@ -84,7 +84,7 @@ install_x-ui() {
     cd /usr/local/
 
     if  [ $# == 0 ] ;then
-        last_version=$(curl -Ls "https://api.github.com/repos/vaxilu/x-ui/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+        last_version=$(curl -Ls "https://raw.githubusercontent.com/kruleshvpn/x-ui/main/releases" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
         if [[ ! -n "$last_version" ]]; then
             echo -e "${red}Failed to detect the x-ui version, it may be beyond the Github API limit, please try again later, or manually specify the x-ui version to install${plain}"
             exit 1
