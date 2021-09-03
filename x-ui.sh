@@ -346,15 +346,15 @@ show_status() {
     check_status
     case $? in
         0)
-            echo -e "Panel status: $(green) is running${plain}"
+            echo -e "Panel status: ${green} is running${plain}"
             show_enable_status
             ;;
         1)
-            echo -e "Panel status: $(yellow) is not running${plain}"
+            echo -e "Panel status: ${yellow} is not running${plain}"
             show_enable_status
             ;;
         2)
-            echo -e "Panel status: $(red) is not installed${plain}"
+            echo -e "Panel status: ${red} is not installed${plain}"
             ;;
     esac
     show_xray_status
